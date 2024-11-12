@@ -38,6 +38,10 @@ curl https://api.vivgrid.com/v1/chat/completions \
   }'
 ```
 
+```txt
+已为您创建了一个新的访客账号，用户名为“李明”。用户ID是“7be36e7b-0842-4020-b1b1-5ff225f37fc0”，初始密码是“By_emXo-”。请尽快登录并修改密码以确保安全。
+```
+
 ## 4. 设备RAG SFN
 
 ```sh
@@ -59,4 +63,8 @@ curl https://api.vivgrid.com/v1/chat/completions \
     "model": "gpt-4o-mini",
     "messages": [{"role": "user", "content": "HAN设备「AP211」可以支持5G频段吗？"}]
   }'
+```
+
+```txt
+是的，HAN设备「AP211」支持5G频段。根据设备文档，AP211是一款室内802.11ac MU-MIMO AP，能够同时工作在2.4GHz和5GHz双频段。5GHz频段的最大无线速率可达867Mbps。
 ```
