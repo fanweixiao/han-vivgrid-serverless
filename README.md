@@ -43,9 +43,20 @@ curl https://api.vivgrid.com/v1/chat/completions \
 ```sh
 cd device_info
 
-export YOMO_SFN_NAME=device_info
-export YOMO_SFN_ZIPPER="zipper.vivgrid.com:9000"
-export YOMO_SFN_CREDENTIAL="app-key-secret:****.****"
+zip app.zip app.go *.txt
 
-yomo run app.go
+cp yc.yml.example yc.yml
+# 编辑yc.yml，填入app-key和app-secret
+
+yc deploy app.zip
+```
+
+```sh
+curl https://api.vivgrid.com/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer ****.****" \
+  -d '{
+    "model": "gpt-4o-mini",
+    "messages": [{"role": "user", "content": "HAN设备「AP211」可以支持5G频段吗？"}]
+  }'
 ```

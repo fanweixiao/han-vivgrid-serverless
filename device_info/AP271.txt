@@ -1,0 +1,171 @@
+北京华信傲天网络技术有限公司
+AP271企业级室外802.11ac wave2 无线AP
+
+AP271是应用于中等密度应用场景的企业级室外802.11ac wave2 AP. 它支持2.4GHz & 5GHz双频工作,提供2*2:2 MU-MIMO的高性能应用体验, 采用符合全球认证要求的高品质硬件设计,是园区、教育、宾馆、企业等对高品质室外无线应用体验有较高要求的用户首选。
+
+AP271室外AP支持IP67防护标准,可在严酷的室外环境正常工作,例如,长期持续高温或低温场景,持续降水场景,强电磁干扰场景,等.最大支持1.267Gbps无线并发流量 (5GHz 频段867Mbps, 2.4GHz频段400Mbps),80MHz 超高信道带宽(VHT80), 多用户MIMO (MU-MIMO) 及双无线空间流(2SS，整机4空间流),双GE接口,集成大角度天线,使每个用户都能享受到极致的Wi-Fi室外无线应用体验.
+
+依托于特色的WLAN无线射频动态优化技术，无需硬件AC的分布式Virtual-AC架构，高安全的统一无线接入控制，内置WLAN无线应用及分析软件，HAN AP271成为所有需要简单,安全且弹性可扩展的WLAN无线网络的企业级用户首选.
+
+CSP/ESP云管理部署模式 
+AP271支持部署在HAN CSP (Cloud Service Platform)公有云管理场景，或HAN ESP(Enterprise Cloud Service Platform)私有云管理场景.AP被当作一个或多个AP组(一个或多个AP组成一个逻辑组)来进行管理.CSP/ESP管理平台是一个可视的、无AC硬件控制器的、工作流用户界面友好的管理架构,支持WLAN无线业务管理及用户认证管理.其
+
+
+
+中,用户认证管理集成了对雇员,访客
+及BYOD设备的不同身份认证策略及强制执行策略. 
+
+可安全Web管理(HTTPS)的Cluster部署模式
+AP271默认运行在Cluster管理模式,提供简单的即插即用部署能力.Cluster是一个由部署在同一个二层网络内的一组HAN AP自发组成的自管理系统, 它是一个virtual controller的管理架构,Cluster成员自选举一个AP作为virtual controller管理整个Cluster.一个Cluster最多可管理255个AP.
+
+Cluster模式提供一个简单、快速的AP部署与管理模式.当地一个AP使用配置向导完成配置后,网络中的其余AP会自动同步所有配置,无需再次配置. 这样,整个WLAN网络能够在几分钟内就快速完成设置并开始工作.
+
+用户使用Web浏览器进行Cluster登陆及管理. 可选择使用HTTPS安全登陆管
+理或者HTTP登陆管理.
+
+
+
+
+AP271也支持与第三方合作伙伴共同开发的零配置管理.该机制允许同一
+
+Cluster内的所有AP安全地从一个本地部署的设备中获得启动配置文件及最新的AP OS镜像文件.
+
+集成访客管理系统 
+AP271支持基于角色的Cluster访问机制.共分为三个角色,分别具有不同的管理权限: Admin, Viewer 及 GuestOperator. GuestOperator仅具有简单的guest访客帐户创建及管理权限,适用于企业/单位的非IT管理人员使用,例如前台或行政人员. Cluster内置一个可自定义界面的captive portal 页面,用于统一的访客接入管理.
+
+多媒体业务的QoS保障
+AP271支持针对不同的多媒体应用(例如话音,视频及桌面共享应用)进行不同的QoS参数调整,以获得最佳的多媒体应用体验.并且,高级的RF扫描功能在执行前也会识别应用分类,如有实时应用类的业务正在进行则会等待该业务执行完毕后再进行扫描.
+
+RF射频管理 
+AP271支持RDA射频动态调整(Radio Dynamic Adjustment)功能,它可以针对不同国家/地区、不同的WLAN无线环境自动分配无线信道 并自动设置RF最大发送功率,支持DFS/TPC规避雷达信道, 以确保AP的所有射频均工作在干扰少的无线信道,提供可靠、高品质的无线应用体验. 此外,AP271可配置为分时或专用空口扫描模式,以及无线压制工作模式,提供更丰富的射频管理功能,应对复杂的无线应用挑战.
+
+产品规格
+射频规格
+• AP 类型: 室外,双频, 5 GHz 802.11ac 2x2:2 MU-MIMO + 2.4 GHz 802.11n 2x2:2 MIMO
+• 5 GHz: 当与2x2 VHT80终端通信时,最大可达867 Mbps无线速率 
+• 2.4 GHz: 当与2x2 VHT40终端通信时,最大可达400 Mbps无线速率(与HT40 802.11n 终端通信可达300 Mbps无线速率)
+• 支持的无线频段 (不同国家遵循不同的合规要求):
+¬2.400 - 2.4835 GHz 
+¬5.150 - 5.250 GHz 
+¬5.250 - 5.350 GHz 
+¬5.470 - 5.725 GHz 
+¬5.725 - 5.850 GHz 
+• 工作信道: 根据不同的国家/地区合规要求而不同
+• 支持DFA (Dynamic Frequency Adjustment),可根据不同的国家/地区自动设定不同的信道及发送功率 
+• 支持20-MHz, 40-MHz, 80-MHz信道的Short guard interval
+• 支持Transmit beam forming (TxBF) ,增强信号可靠性及传输距离
+• 支持802.11n/ac 包聚合: Aggregated Mac Protocol Data Unit (A-MPDU), Aggregated Mac Service Data Unit (A-MSDU)
+• 支持的数据速率集 (Mbps):
+¬802.11b: 1, 2, 5.5, 11
+¬802.11a/g: 6, 9, 12, 18, 24, 36, 48, 54
+¬802.11n: 6.5 to 300 (MCS0 to MCS15)
+¬802.11ac: 6.5 - 867 (MCS0 to MCS9, NSS = 1 to 2 for VHT20/40/80)
+•支持的调制类型:
+¬802.11b: BPSK, QPSK, CCK
+¬802.11a/g/n/ac: BPSK, QPSK, 16-QAM, 64-QAM, 256-QAM
+¬802.11n high-throughput (HT) support: HT 20/40
+¬802.11ac very high throughput (VHT) support: VHT 20/40/80
+• ACC (Advanced Cellular Coexistence) 抗蜂窝网干扰的RF增强特性
+  增强的RF硬件设计,可最小化来自3G/4G蜂窝网、分布式天线系统、smallcell/femtocell设备的的干扰,支持AP在无线环境严格的场景部署. 
+
+外部接口
+• 2× 10/100/1000BASE-T autosensing (RJ-45), 任一端口皆支持Power over Ethernet (PoE) 
+• 1× Management Console Port (Micro-USB)
+• Reset 按钮: 恢复出厂设置按钮 
+
+指示灯
+• 指示系统及无线运行状态
+¬SYS亮: AP上电, OS正在加载，系统运行
+¬SYS闪: OS正在升级
+¬2.4G亮: 2.4G SSID已创建，正在运行
+¬5G亮: 5G SSID已创建，正在运行
+¬ENET0亮: 以太端口0链路建立成功
+¬ENET1亮: 以太端口1链路建立成功
+¬RSRV0闪: AP位置定位中
+¬RSRV1：为新业务保留
+
+安全硬件
+集成TPM (Trusted Platform Module)芯片,用于证书和密钥等的安全存储 
+
+天线
+• AP271: 集成双频2x2 MIMO天线,最大增益达8.46dBi @ 2.4 GHz, 6.62dBi @ 5 GHz
+
+接收灵敏度 (per chain) 
+
+最大发射功率 (per chain) 
+
+电源
+• 最大功耗: 
+¬11.8W (802.3af PoE)  
+
+安装挂件
+• AP包装盒自带抱杆/挂墙安装挂件
+
+环境
+• 工作温度: -40°C - 65°C (-40°F - +149°F) 
+• 工作湿度: 5% - 95%,非冷凝 
+• 存储及运输温度: -40°C - +85°C (-40°F - +185°F)
+• 防护等级: IP67
+• 风阻
+¬最大支持100MPH 持续风
+¬最大支持165MPH 瞬态风
+
+尺寸/重量
+• 单AP,不含安装挂件及附件: 243mm (W) x 243mm (D) x 85mm (H) -9.56” (W) x 9.56” (D) x 3.34” (H) / 2230g / 4.91lb 
+• 单AP,含安装挂件及附件: 344mm (W) x 341mm (D) x 220mm (H) -10.32” (W) x 10.23” (D) x 8.66”(H)/ 4025g / 8.87lb
+
+可靠性
+MTBF: 297,199小时 (33.92年) ,+25ºC 工作温度
+
+软件特性
+• 每radio最大8SSID (每AP 16SSID)
+• 最大支持512关联用户
+• Web管理的 (HTTP/HTTPS) cluster部署模式.最大支持255 APs/cluster
+• 自动信道选择
+• 自动发送功率控制
+• 基于SSID的带宽控制
+• 二层漫游
+• CSP/ESP部署模式下,三层漫游
+• Captive Portal
+• 内置用户数据库
+• Radius客户端
+• 无线QoS
+• Band steering 
+• 基于用户的智能负载均衡
+• 白名单/黑名单
+• Zero-touch provisioning (ZTP), 需与第三方配合
+• NTP服务器客户端 
+• ACL
+• 流氓AP定位及压制
+• 系统日志及报告 
+• 无线攻击检测 
+备注: 一些特性受所在国家/地区的合规要求限制
+
+加密&认证
+• 802.11i, Wi-Fi Protected Access 2 (WPA2), WPA, WPA3
+• 802.1X 
+• Portal页面认证
+• WEP, Advanced Encryption Standard (AES), Temporal Key Integrity Protocol (TKIP)
+
+IEEE standard
+• IEEE 802.11a/b/g/n/ac wave2
+• IEEE 802.11e WMM
+• IEEE 802.11h, 802.11i, 802.11e QoS
+• 802.11k Radio Resource Management
+• 802.11v BSS Transition Management 
+• 802.11r Fast roaming
+
+Regulatory & certification
+• CB Scheme Safety, cTUVus 
+• Wi-Fi Alliance (WFA) certified 802.11a/b/g/n/ac 
+• Wi-Fi Alliance WPA3 
+• Wi-Fi Alliance Passpoint R2 
+• FCC
+• CE 
+• EMI and susceptibility(Class B)
+• RoHS, REACH, WEEE
+• SRRC
+
+订货信息
+型号	描述
+AP271-RW	企业级室外802.11ac MU-MIMO AP,双频, 11n 2x2:2 + 11ac 2x2:2, 2x GbE, 1x Micro-USB Console, 内置大角度天线. 
