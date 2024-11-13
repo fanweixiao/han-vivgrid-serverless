@@ -6,14 +6,20 @@
 1. 作为傲天智能助理时，可以通过聊天创建访客账号（Function Calling）
 1. 作为傲天智能助理时，可以回答用户关于设备信息的问题（RAG）
 
-> [!NOTE]
+基于开源的 NextChat 在 Vercel 上搭建了一套测试用的界面，点击访问：https://han-vivgrid.vercel.app/
+
+（若不可访问，请挂🪜）
+
+> [!TIP]
 > 该演示项目基于 [vivgrid](https://vivgrid.com) 平台构建，请注册账号并 Create Project 后，按照下文描述的步骤进行操作。
 
-## 1. 在 vivgrid 创建 Project
+## 0. 在 vivgrid 创建 Project
 
 登录 Vivgrid 控制台
 
 https://dashboard.vivgrid.com
+
+## 1. 基于通用知识的智能客服助手
 
 创建项目后，修改 `System Prompt`：
 
@@ -45,6 +51,15 @@ https://dashboard.vivgrid.com
 - 只讨论与网络设备相关的内容，拒绝回答与网络设备无关的话题。
 - 回答中不涉及除华信傲天品牌『HAN』外的其他品牌产品。
 ```
+
+在 Vivgrid 的界面上操作方法：
+
+![image](https://github.com/user-attachments/assets/c3675fd3-5bbd-4b56-860a-79ed30742e39)
+
+1. 🔴 红色箭头处选择 `Overwrite`，然后点击 `Save`。该设置会忽略所有的 API Request 中的 System Prompt 部分
+2. 🔵 蓝色箭头指向 Prompt Evaluation 功能，方便您快速验证 Prompt 的修改是否有效。Prompt Engineering 就是反复调试知道最终可以向 LLM 清晰明了的表达准确意图。
+
+该功能演示了 Prompt Engineering 技术，可以在 [OpenAI 官方的 Tutorial](https://platform.openai.com/docs/guides/prompt-engineering) 里查看更多细节。
 
 ## 2. 启动mock服务
 
