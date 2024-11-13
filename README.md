@@ -19,7 +19,7 @@
 
 https://dashboard.vivgrid.com
 
-## 1. 基于通用知识的智能客服助手
+## 1. 基于通用知识的智能客服助手：“AP 和 WiFi 的区别是什么？”
 
 创建项目后，修改 `System Prompt`：
 
@@ -61,7 +61,12 @@ https://dashboard.vivgrid.com
 
 该功能演示了 Prompt Engineering 技术，可以在 [OpenAI 官方的 Tutorial](https://platform.openai.com/docs/guides/prompt-engineering) 里查看更多细节。
 
-## 2. 启动mock服务
+## 2. 傲天私有 API 与 LLM 整合：“创建一个新的访客账号，用户名是：李明”
+
+> [!NOTE]
+> 演示的 API 是 `https://192.168.40.183/api/v1.0/`，但为了演示效果，我们搭建了一个 mock 服务。之后，可以随时将该部分代码在内网环境中启动。只要内网环境可以 udp 连接到 `zipper.vivgrid.com:9000`，即可使用。
+
+[mock_api.py](./mock_api.py) 是 Mock API Server，首先本地启动它：
 
 ```sh
 pip install uvicorn fastapi pydantic
@@ -69,31 +74,69 @@ pip install uvicorn fastapi pydantic
 uvicorn mock_api:app --port 9999
 ```
 
-## 3. 创建访客SFN
+然后，以 Serverless 的方式编写 LLM Function Calling，让 LLM 知道当用户的要求是创建访客账号时，需要调用该程序（SFN）完成任务。
+代码在 [sfn_create_guest_account](./sfn_create_guest_account) 目录下。
+
+> [!TIP]
+> 在私有环境中 Hosting 该 Function Calling 需要使用开源的 [YoMo](https://github.com/yomorun/yomo) 项目。
+
+先安装 YoMo CLI:
+
+```bash
+curl -fsSL https://get.yomo.run | sh
+```
+
+在 Vivgrid Dashboard 上获取该项目的 Token：
+
+![image](https://github.com/user-attachments/assets/173eb46d-966a-4b4b-bd0f-2fca688b3544)
+
+之后，在机器上启动该 Function Calling：
 
 ```sh
-cd guest_account
+cd sfn_create_guest_account
 
-export YOMO_SFN_NAME=guest_account
+export YOMO_SFN_NAME=create_guest_account
 export YOMO_SFN_ZIPPER="zipper.vivgrid.com:9000"
 export YOMO_SFN_CREDENTIAL="app-key-secret:****.****"
 
 yomo run app.go
 ```
 
+启动之后，即可回到 Vivgrid Dashboard，在 AI Bridge 页面的 Prompt Evaluation 进行测试：
+
+![image](https://github.com/user-attachments/assets/11618ff6-d3b6-4493-be91-b9c7a3d4288e)
+
+在这里，我们看到 LLM 已经调用了 API，并完成了账号创建工作。
+
+当然，也可以使用 API 访问，您完全可以使用 OpenAI API 接口兼容的 SDK 进行对 Vivgrid 的调用。
+
+注：`Authorization` 中的 Token 的获得方式在上文已有描述。
+
 ```sh
 curl https://api.vivgrid.com/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer ****.****" \
   -d '{
-    "model": "gpt-4o-mini",
+    "model": "gpt-4o",
     "messages": [{"role": "user", "content": "请帮我创建一个新的访客账号，用户名是“李明”"}]
   }'
 ```
 
+API 响应结果为：
+
 ```txt
 已为您创建了一个新的访客账号，用户名为“李明”。用户ID是“7be36e7b-0842-4020-b1b1-5ff225f37fc0”，初始密码是“By_emXo-”。请尽快登录并修改密码以确保安全。
 ```
+
+该功能演示了如何基于 Vivgrid 和开源的 YoMo 工具方便快速的构建一个 LLM Function Calling 服务，并已 Serverless 的方式编写，这也使得之后的部署和运维工作变得异常容易。
+如果想了解更多关于 Function Calling 的知识，可以访问 [OpenAI 官方文档 - Function Calling](https://platform.openai.com/docs/guides/function-calling)
+
+> [!TIP]
+> 主流 LLM 均提供了 Function Calling 功能，但不同的 LLM 定义的 Function Calling 规范不同，代码完全不可复用。可以对照 Google Gemini API 的官方文档查看与 OpenAI API 中对 Function Calling 的规范差异。
+> 
+> 我们的 Vivgrid 提供了对不同 LLM 的支持，这意味着当您编写的 Function Calling Serverless，在更换 LLM 时，无需任何改动！😃
+
+
 
 ## 4. 设备RAG SFN
 
