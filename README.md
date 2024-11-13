@@ -136,20 +136,35 @@ API 响应结果为：
 > 
 > 我们的 Vivgrid 提供了对不同 LLM 的支持，这意味着当您编写的 Function Calling Serverless，在更换 LLM 时，无需任何改动！😃
 
+借助 LLM Function Calling 功能，可以将各种 API 分别包装成服务，以拓展 LLM 与现场业务系统的结合。
 
+## 3. 基于私有知识的智能助手："「AP211」可以支持5G频段吗？"
 
-## 4. 设备RAG SFN
+该功能演示如何将私有知识应用于回答用户问题。
+
+`RAG` 技术在正式使用场景中，因为其技术缺陷，往往导致无法精准理解用户的问题，我们的 F500 客户使用了下面演示的方法精准的理解和回答用户问题，如下图：
+
+![image](https://github.com/user-attachments/assets/ef9eb17d-c192-4aff-92e3-f6a79312ae2d)
+
+该类内容因无需访问私有 API，因此我们可以将其部署至 Vivgrid，这将大幅降低您的运维管理成本：
 
 ```sh
-cd device_info
+cd sfn_device_info
 
 zip app.zip app.go *.txt
 
 cp yc.yml.example yc.yml
-# 编辑yc.yml，填入app-key和app-secret
+
+# 编辑 yc.yml，填入 app-key 和 app-secret
 
 yc deploy app.zip
 ```
+
+其中，`app-key` 和 `app-secret` 可以在 Vivgrid Dashboard - Configuration 中找到：
+
+![image](https://github.com/user-attachments/assets/bde783bc-bd4a-400b-bccf-1907dd0a1564)
+
+当然，该功能也支持使用 API 访问：
 
 ```sh
 curl https://api.vivgrid.com/v1/chat/completions \
@@ -160,6 +175,8 @@ curl https://api.vivgrid.com/v1/chat/completions \
     "messages": [{"role": "user", "content": "HAN设备「AP211」可以支持5G频段吗？"}]
   }'
 ```
+
+响应：
 
 ```txt
 是的，HAN设备「AP211」支持5G频段。根据设备文档，AP211是一款室内802.11ac MU-MIMO AP，能够同时工作在2.4GHz和5GHz双频段。5GHz频段的最大无线速率可达867Mbps。
