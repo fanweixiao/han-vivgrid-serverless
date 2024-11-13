@@ -21,10 +21,10 @@ type Parameter struct {
 }
 
 func Description() string {
-	return `这个函数将根据用户提出的有关HAN网络设备问题，返回具体设备型号的知识文档。
+	return `这个函数将根据用户提出的有关 HAN（傲天) 网络设备问题，返回具体设备型号的知识文档。
 以下是一些用户可能提出的问题：
-1.请概要介绍一下AP211的使用场景？
-2.AP271是否支持5G频段？`
+1.请概要介绍一下 AP211 的使用场景？
+2.AP271 是否支持5G频段？`
 }
 
 func InputSchema() any {
@@ -51,7 +51,7 @@ func Handler(ctx serverless.Context) {
 		ctx.WriteLLMResult(fmt.Sprintf("抱歉，我没有找到关于「%s」产品的文档", msg.DeviceId))
 	}
 
-	ctx.WriteLLMResult(fmt.Sprintf("以下内容是HAN设备「%s」的文档，请根据文档内容回答用户问题：\n%s", msg.DeviceId, doc))
+	ctx.WriteLLMResult(fmt.Sprintf("以下内容是 HAN 设备「%s」的文档，请根据文档内容回答用户问题：\n%s", msg.DeviceId, doc))
 }
 
 func DataTags() []uint32 {

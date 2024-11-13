@@ -1,4 +1,4 @@
 zipper: zipper.allegro.earth:9000
 app-key: ****
 app-secret: ****
-sfn-name: device_info
+sfn-name: sfn_device_info

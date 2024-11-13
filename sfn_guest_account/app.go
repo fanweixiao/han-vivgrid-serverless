@@ -15,22 +15,28 @@ import (
 	"github.com/yomorun/yomo/serverless"
 )
 
+// 这里定义的是 API 地址
 var (
 	HanUrl = "http://127.0.0.1:9999"
+	// HanUrl = "https://192.168.40.183"
 )
 
+// 定义 LLM 调用该 Function 时的参数签名
 type Parameter struct {
 	Username string `json:"username" jsonschema:"description=the guest account username"`
 }
 
+// 必要方法。准确的描述该 Function 的功能，有助于 LLM 匹配用户的问题
 func Description() string {
 	return `this function is used to create a new guest account`
 }
 
+// 必要方法
 func InputSchema() any {
 	return &Parameter{}
 }
 
+// 非必要方法，用于初始化工作
 func Init() error {
 	if v, ok := os.LookupEnv("HAN_URL"); ok {
 		HanUrl = v
@@ -38,6 +44,7 @@ func Init() error {
 	return nil
 }
 
+// 必要方法。每次 LLM 调用该 Function Calling 时，该函数会被唤醒运行一次
 func Handler(ctx serverless.Context) {
 	slog.Info("[sfn] receive", "ctx.data", string(ctx.Data()))
 
@@ -63,9 +70,12 @@ func Handler(ctx serverless.Context) {
 	}
 }
 
+// 必要方法
 func DataTags() []uint32 {
 	return []uint32{0x10}
 }
+
+//////////// 以下均为调用 API 时的业务代码，与 Function Calling 本身无关 ////////////
 
 type GuestAccountRequest struct {
 	Username              string `json:"username"`
